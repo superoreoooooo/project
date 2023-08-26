@@ -1,0 +1,5 @@
+name: project
+version: '${project.version}'
+main: win.oreo.project.Project
+commands:
+  npc:
