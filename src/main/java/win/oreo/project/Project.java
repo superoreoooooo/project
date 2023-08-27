@@ -2,6 +2,7 @@ package win.oreo.project;
 
 import net.minecraft.server.v1_12_R1.EntityPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.command.NPCCommand;
 import win.oreo.project.manager.YmlManager;
@@ -10,6 +11,7 @@ import win.oreo.project.util.NPCUtil;
 import win.oreo.project.util.NPCYmlUtil;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public final class Project extends JavaPlugin {
@@ -53,13 +55,18 @@ public final class Project extends JavaPlugin {
         this.npcYmlUtil = new NPCYmlUtil();
 
         npcYmlUtil.load();
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.spigot().setCollidesWithEntities(false);
+        }
     }
 
     @Override
     public void onDisable() {
-        for (NPC npc : NPCUtil.NPCSet) {
+        npcYmlUtil.save();
+        Set<NPC> cp = new HashSet<>(NPCUtil.NPCSet);
+        for (NPC npc : cp) {
             npc.removePlayer();
         }
-        npcYmlUtil.save();
     }
 }

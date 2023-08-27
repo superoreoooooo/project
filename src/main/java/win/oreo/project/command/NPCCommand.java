@@ -18,13 +18,9 @@ import java.util.Set;
 import java.util.UUID;
 
 public class NPCCommand implements CommandExecutor {
-    private NPC npcPlayer;
     private Project plugin;
 
-    public static List<Player> editorList = new ArrayList<>();
-
     public NPCCommand() {
-        this.npcPlayer = new NPC();
         this.plugin = JavaPlugin.getPlugin(Project.class);
     }
 
@@ -122,10 +118,10 @@ public class NPCCommand implements CommandExecutor {
             NPC npcPlayer = NPCUtil.getNPC(name);
 
             if (npcPlayer != null) {
+                sender.sendMessage("removed npc : " + npcPlayer.getName());
                 npcPlayer.removePlayer();
-                sender.sendMessage("removed npc : " + this.npcPlayer.getName());
             } else {
-                sender.sendMessage("failed to remove npc : " + this.npcPlayer.getName());
+                sender.sendMessage("failed to remove npc : " + name);
             }
         }
     }

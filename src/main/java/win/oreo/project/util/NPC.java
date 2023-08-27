@@ -71,5 +71,6 @@ public class NPC {
 
     public void removePlayer() {
         v1_12_R1.removePlayer(this);
+        NPCUtil.NPCSet.remove(this);
     }
 }

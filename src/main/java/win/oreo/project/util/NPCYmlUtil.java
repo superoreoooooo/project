@@ -1,6 +1,7 @@
 package win.oreo.project.util;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
 
@@ -22,6 +23,7 @@ public class NPCYmlUtil {
     public void save() {
         clearData();
         for (NPC npc : NPCUtil.NPCSet) {
+            Bukkit.broadcastMessage(npc.getName());
             plugin.ymlManager.getConfig().set("npc." + npc.getUUID() + ".name", npc.getName());
             plugin.ymlManager.getConfig().set("npc." + npc.getUUID() + ".locX", npc.getEntityPlayer().getBukkitEntity().getLocation().getX());
             plugin.ymlManager.getConfig().set("npc." + npc.getUUID() + ".locY", npc.getEntityPlayer().getBukkitEntity().getLocation().getY());
@@ -43,7 +45,13 @@ public class NPCYmlUtil {
             String s = plugin.ymlManager.getConfig().getString("npc." + idS + ".signature");
 
             if (NPC.summon(n, x, y, z, id, v, s)) {
-                Bukkit.broadcastMessage("summoned : " + n);
+                Bukkit.broadcastMessage(ChatColor.GREEN + "loaded : " + n);
+            }
+        }
+
+        for (NPC npc : NPCUtil.NPCSet) {
+            if (npc.getEntityPlayer().getBukkitEntity().isDead()) {
+                npc.getEntityPlayer().getBukkitEntity().spigot().respawn();
             }
         }
     }
