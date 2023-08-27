@@ -44,7 +44,7 @@ public class NPC {
 
         entityPlayer = v1_12_R1.spawn(this, x, y, z);
 
-        new NPCYmlUtil().add(this, x, y, z);
+        NPCUtil.NPCSet.add(this);
 
         return true;
     }
@@ -70,11 +70,6 @@ public class NPC {
     }
 
     public void removePlayer() {
-        v1_12_R1.removePlayer(this);
-    }
-
-    public void removeDataAndPlayer() {
-        new NPCYmlUtil().remove(this);
         v1_12_R1.removePlayer(this);
     }
 }

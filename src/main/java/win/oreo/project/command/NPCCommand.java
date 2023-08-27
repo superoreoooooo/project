@@ -10,9 +10,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
 import win.oreo.project.util.NPC;
 import win.oreo.project.util.NPCUtil;
+import win.oreo.project.util.NPCYmlUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class NPCCommand implements CommandExecutor {
@@ -65,7 +67,7 @@ public class NPCCommand implements CommandExecutor {
                         break;
                     case "list" :
                         if (args.length == 1) {
-                            //TODO 리스트 확인
+                            printNPCList(sender);
                         } else {
                             Bukkit.dispatchCommand(sender, "npc");
                         }
@@ -82,8 +84,13 @@ public class NPCCommand implements CommandExecutor {
         return false;
     }
 
+    public void printNPCList(CommandSender sender) {
+        for (NPC npc : NPCUtil.NPCSet) {
+            sender.sendMessage(npc.getName());
+        }
+    }
 
-    public void setSkin(CommandSender sender, String name, String skin) {
+    public void setSkin(CommandSender sender, String name, String skin) { //TODO 스킨생성후 추가하는 기능
         NPC player = NPCUtil.getNPC(name);
         if (player == null) {
             Bukkit.dispatchCommand(sender, "npc");
@@ -108,14 +115,14 @@ public class NPCCommand implements CommandExecutor {
         if (name.equalsIgnoreCase("All")) {
             List<NPC> copy = new ArrayList<>(NPCUtil.NPCSet);
             for (NPC player : copy) {
-                player.removeDataAndPlayer();
+                player.removePlayer();
             }
             sender.sendMessage("removed all npc!");
         } else {
             NPC npcPlayer = NPCUtil.getNPC(name);
 
             if (npcPlayer != null) {
-                npcPlayer.removeDataAndPlayer();
+                npcPlayer.removePlayer();
                 sender.sendMessage("removed npc : " + this.npcPlayer.getName());
             } else {
                 sender.sendMessage("failed to remove npc : " + this.npcPlayer.getName());

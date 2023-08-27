@@ -5,6 +5,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.command.NPCCommand;
 import win.oreo.project.manager.YmlManager;
+import win.oreo.project.util.NPC;
+import win.oreo.project.util.NPCUtil;
+import win.oreo.project.util.NPCYmlUtil;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +15,7 @@ import java.util.Set;
 public final class Project extends JavaPlugin {
 
     public YmlManager ymlManager;
+    public NPCYmlUtil npcYmlUtil;
 
     private boolean usesPaper = false;
 
@@ -46,9 +50,16 @@ public final class Project extends JavaPlugin {
         getCommand("npc").setExecutor(new NPCCommand());
         checkForClasses();
         this.ymlManager = new YmlManager(this);
+        this.npcYmlUtil = new NPCYmlUtil();
+
+        npcYmlUtil.load();
     }
 
     @Override
     public void onDisable() {
+        for (NPC npc : NPCUtil.NPCSet) {
+            npc.removePlayer();
+        }
+        npcYmlUtil.save();
     }
 }

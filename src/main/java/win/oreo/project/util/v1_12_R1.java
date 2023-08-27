@@ -121,8 +121,6 @@ public class v1_12_R1 {
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(JavaPlugin.getPlugin(Project.class), entityPlayer::playerTick, 1, 1);
 
-        NPCUtil.entityPlayerSet.add(entityPlayer);
-
         entityPlayer.getBukkitEntity().spigot().setCollidesWithEntities(false);
 
         return entityPlayer;
@@ -185,8 +183,6 @@ public class v1_12_R1 {
         PlayerQuitEvent playerQuitEvent = new PlayerQuitEvent(craftServer.getPlayer(entityPlayer), "");
 
         Bukkit.getPluginManager().callEvent(playerQuitEvent);
-
-        NPCUtil.entityPlayerSet.remove(entityPlayer);
 
         worldServer.getPlayerChunkMap().removePlayer(entityPlayer);
         worldServer.removeEntity(entityPlayer);
