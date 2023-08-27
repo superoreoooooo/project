@@ -1,17 +1,15 @@
 package win.oreo.project;
 
-import net.minecraft.server.v1_12_R1.EntityPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.command.NPCCommand;
 import win.oreo.project.manager.YmlManager;
-import win.oreo.project.util.NPC;
-import win.oreo.project.util.NPCUtil;
-import win.oreo.project.util.NPCYmlUtil;
+import win.oreo.project.util.NPC.NPC;
+import win.oreo.project.util.NPC.NPCUtil;
+import win.oreo.project.util.NPC.NPCYmlUtil;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 public final class Project extends JavaPlugin {

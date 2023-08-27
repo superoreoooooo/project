@@ -1,6 +1,4 @@
-package win.oreo.project.util;
-
-import net.minecraft.server.v1_12_R1.EntityPlayer;
+package win.oreo.project.util.NPC;
 
 import java.util.HashSet;
 import java.util.Set;

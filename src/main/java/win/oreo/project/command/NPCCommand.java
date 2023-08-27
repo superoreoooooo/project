@@ -8,13 +8,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
-import win.oreo.project.util.NPC;
-import win.oreo.project.util.NPCUtil;
-import win.oreo.project.util.NPCYmlUtil;
+import win.oreo.project.util.NPC.NPC;
+import win.oreo.project.util.NPC.NPCUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 public class NPCCommand implements CommandExecutor {
@@ -67,6 +65,9 @@ public class NPCCommand implements CommandExecutor {
                         } else {
                             Bukkit.dispatchCommand(sender, "npc");
                         }
+                        break;
+                    case "autoLoad", "auto" :
+                        //TODO parsing from NPC DataFile Folder
                         break;
                     default:
                         Bukkit.dispatchCommand(player, "npc");

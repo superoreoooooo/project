@@ -1,8 +1,9 @@
-package win.oreo.project.util;
+package win.oreo.project.util.NPC;
 
 import net.minecraft.server.v1_12_R1.EntityPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import win.oreo.project.util.v1_12_R1;
 
 import java.util.UUID;
 

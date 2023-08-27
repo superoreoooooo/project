@@ -1,12 +1,10 @@
-package win.oreo.project.util;
+package win.oreo.project.util.NPC;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class NPCYmlUtil {
