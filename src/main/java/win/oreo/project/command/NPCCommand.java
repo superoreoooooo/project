@@ -8,8 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
-import win.oreo.project.util.NPC.NPC;
-import win.oreo.project.util.NPC.NPCUtil;
+import win.oreo.project.util.npc.NPC;
+import win.oreo.project.util.npc.NPCUtil;
 
 import java.util.ArrayList;
 import java.util.List;

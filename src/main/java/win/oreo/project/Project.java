@@ -1,13 +1,13 @@
 package win.oreo.project;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.command.NPCCommand;
+import win.oreo.project.listener.PlayerMovementListener;
 import win.oreo.project.manager.YmlManager;
-import win.oreo.project.util.NPC.NPC;
-import win.oreo.project.util.NPC.NPCUtil;
-import win.oreo.project.util.NPC.NPCYmlUtil;
+import win.oreo.project.util.npc.NPC;
+import win.oreo.project.util.npc.NPCUtil;
+import win.oreo.project.util.npc.NPCYmlUtil;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -52,11 +52,11 @@ public final class Project extends JavaPlugin {
         this.ymlManager = new YmlManager(this);
         this.npcYmlUtil = new NPCYmlUtil();
 
+        Bukkit.getPluginManager().registerEvents(new PlayerMovementListener(), this);
+
         npcYmlUtil.load();
 
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            player.spigot().setCollidesWithEntities(false);
-        }
+        NPCUtil.run();
     }
 
     @Override

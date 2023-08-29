@@ -1,4 +1,4 @@
-package win.oreo.project.util.NPC;
+package win.oreo.project.util.npc;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

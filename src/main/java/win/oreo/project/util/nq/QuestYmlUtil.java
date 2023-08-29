@@ -4,8 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
-import win.oreo.project.util.NPC.NPC;
-import win.oreo.project.util.NPC.NPCUtil;
+import win.oreo.project.util.npc.NPC;
+import win.oreo.project.util.npc.NPCUtil;
 
 import java.util.UUID;
 
@@ -26,15 +26,6 @@ public class QuestYmlUtil {
             String v = plugin.ymlManager.getConfig().getString("npc." + idS + ".value");
             String s = plugin.ymlManager.getConfig().getString("npc." + idS + ".signature");
 
-            if (NPC.summon(n, x, y, z, id, v, s)) {
-                Bukkit.broadcastMessage(ChatColor.GREEN + "loaded : " + n);
-            }
-        }
-
-        for (NPC npc : NPCUtil.NPCSet) {
-            if (npc.getEntityPlayer().getBukkitEntity().isDead()) {
-                npc.getEntityPlayer().getBukkitEntity().spigot().respawn();
-            }
         }
     }
 }

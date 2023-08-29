@@ -18,7 +18,7 @@ import org.bukkit.event.player.*;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.Project;
-import win.oreo.project.util.NPC.NPC;
+import win.oreo.project.util.npc.NPC;
 import win.oreo.project.util.paper.PaperUtils_v1_12_R1;
 
 import java.io.IOException;
@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class v1_12_R1 {
-    public static EntityPlayer spawn(win.oreo.project.util.NPC.NPC NPCPlayer, double x, double y, double z) {
+    public static EntityPlayer spawn(win.oreo.project.util.npc.NPC NPCPlayer, double x, double y, double z) {
         WorldServer worldServer = ((CraftWorld) Bukkit.getWorlds().get(0)).getHandle();
         MinecraftServer mcServer = ((CraftServer) Bukkit.getServer()).getServer();
         EntityPlayer entityPlayer = createEntityPlayer(NPCPlayer.getUUID(), NPCPlayer.getName(), worldServer, NPCPlayer.getValue(), NPCPlayer.getSignature());
