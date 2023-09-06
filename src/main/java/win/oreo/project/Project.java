@@ -3,11 +3,13 @@ package win.oreo.project;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import win.oreo.project.command.NPCCommand;
+import win.oreo.project.command.QuestCommand;
 import win.oreo.project.listener.PlayerMovementListener;
 import win.oreo.project.manager.YmlManager;
 import win.oreo.project.util.npc.NPC;
 import win.oreo.project.util.npc.NPCUtil;
 import win.oreo.project.util.npc.NPCYmlUtil;
+import win.oreo.project.util.nq.Quest;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -48,6 +50,7 @@ public final class Project extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("npc").setExecutor(new NPCCommand());
+        getCommand("quest").setExecutor(new QuestCommand());
         checkForClasses();
         this.ymlManager = new YmlManager(this);
         this.npcYmlUtil = new NPCYmlUtil();

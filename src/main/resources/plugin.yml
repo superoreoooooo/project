@@ -3,3 +3,4 @@ version: '${project.version}'
 main: win.oreo.project.Project
 commands:
   npc:
+  quest:

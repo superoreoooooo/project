@@ -6,8 +6,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
-import win.oreo.project.Project;
 import win.oreo.project.util.npc.NPC;
 import win.oreo.project.util.npc.NPCUtil;
 
@@ -16,11 +14,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class NPCCommand implements CommandExecutor {
-    private Project plugin;
-
-    public NPCCommand() {
-        this.plugin = JavaPlugin.getPlugin(Project.class);
-    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
